@@ -108,7 +108,7 @@ pipeline {
             }
         }
 
-
+*/
 
         stage('Docker Image to Clean') {
             steps {
@@ -117,12 +117,12 @@ pipeline {
             }
         }
 
-*/
+
 
     }
 
 
-/*
+
     post {
      always {
         emailext attachLog: true,
@@ -130,10 +130,10 @@ pipeline {
             body: "Project: ${env.JOB_NAME}<br/>" +
                 "Build Number: ${env.BUILD_NUMBER}<br/>" +
                 "URL: ${env.BUILD_URL}<br/>",
-            to: 'mimaraslan@gmail.com',
+            to: 'opentechtr@gmail.com',
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
     }
-*/
+
 
 }

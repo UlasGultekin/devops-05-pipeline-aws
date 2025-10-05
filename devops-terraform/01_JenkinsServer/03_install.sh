@@ -43,10 +43,7 @@ sudo apt-get install trivy -y
 
 
 
-#EKS
-sudo apt update
-sudo apt upgrade -y	
-sudo reboot
+
 
 #curl
 sudo apt install curl

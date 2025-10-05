@@ -105,8 +105,8 @@ EC2 JENKINS_SERVER makineye ADMIN ROLUNU VER.
 NODE OLUŞTUR.
 
 eksctl create cluster --name my-workspace-cluster \
---region us-east-1 \
---node-type t2.large \
+--region us-west-1 \
+--node-type t3.xlarge \
 --nodes 2 
 
 
@@ -185,10 +185,10 @@ kubectl delete namespace prometheus
 
 // EKS'deki tüm nodelarını hepten silme komutları
 
-export AWS_DEFAULT_REGION=us-east-1
+export AWS_DEFAULT_REGION=us-west-1
 eksctl delete cluster   --name my-workspace-cluster
 
-// eksctl delete cluster --region=us-east-1 --name=my-workspace-cluster      
+// eksctl delete cluster --region=us-west-1 --name=my-workspace-cluster
 
 
 terraform destroy

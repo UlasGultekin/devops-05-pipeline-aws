@@ -24,7 +24,7 @@ pipeline {
 
         stage('Checkout from SCM') {
             steps {
-                git branch: 'master',  url: 'https://github.com/mimaraslan/devops-05-pipeline-aws.git'
+                git branch: 'main',  url: 'https://github.com/UlasGultekin/devops-05-pipeline-aws.git'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        /*
+
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarTokenForJenkins') {
@@ -43,8 +43,8 @@ pipeline {
                 }
             }
         }
-       */
 
+ /*
         stage('Run SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarTokenForJenkins') {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-
+  */
 
        stage("Quality Gate"){
            steps {
@@ -79,8 +79,8 @@ pipeline {
                  script{
                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){
                       sh "docker build -t devops-05-pipeline-aws ."
-                      sh "docker tag devops-05-pipeline-aws mimaraslan/devops-05-pipeline-aws:latest "
-                      sh "docker push mimaraslan/devops-05-pipeline-aws:latest "
+                      sh "docker tag devops-05-pipeline-aws ulasgltkn/devops-05-pipeline-aws:latest "
+                      sh "docker push ulasgltkn/devops-05-pipeline-aws:latest "
                     }
                 }
             }
@@ -89,11 +89,11 @@ pipeline {
 
         stage("TRIVY Image Scan"){
             steps{
-                sh "trivy image mimaraslan/devops-05-pipeline-aws:latest > trivyimage.txt"
+                sh "trivy image ulasgltkn/devops-05-pipeline-aws:latest > trivyimage.txt"
             }
         }
 
-
+/*
         stage('Deploy to Kubernetes'){
             steps{
                 script{
@@ -116,6 +116,8 @@ pipeline {
                 sh 'docker image prune -f'
             }
         }
+
+*/
 
     }
 
